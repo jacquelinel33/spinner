@@ -1,48 +1,32 @@
 process.stdout.write('hello from spinner1.js... \rheyyy\n');
+let spinner = ['\r|   ', '\r/   ', '\r-   ','\r\\   ', '\r|   ', '\r/   ', '\r-   ','\r\\   '];
 
-setTimeout(() => {
-  process.stdout.write('\r|   ');
-}, 100);
-
-setTimeout(() => {
-  process.stdout.write('\r/   ');
-}, 300);
-
-setTimeout(() => {
-  process.stdout.write('\r-   ');
-}, 500);
-
-setTimeout(() => {
-  // Need to escape the backslash since it's a special character.
-  process.stdout.write('\r\\   ');
-}, 700);
-
-setTimeout(() => {
-  // Need to escape the backslash since it's a special character.
-  process.stdout.write('\r|   ');
-}, 900);
+let delay = 100;
+for (let i = 0; i < spinner.length; i++) {
+  setTimeout(() => {
+    if (i !== spinner.length - 1) {
+      process.stdout.write(spinner[i]);
+      // console.log(sentence[i]);
+    }
+    else {
+      process.stdout.write(spinner[i] + '\n');
+      // console.log(sentence[i] + '\n');
+    } //delay counter is updating everytime
+  }, delay);
+  delay += 200;
+};
 
 
-setTimeout(() => {
-  // Need to escape the backslash since it's a special character.
-  process.stdout.write('\r/   ');
-}, 1100);
 
 
-setTimeout(() => {
-  // Need to escape the backslash since it's a special character.
-  process.stdout.write('\r-  ');
-}, 1300);
-
-setTimeout(() => {
-  // Need to escape the backslash since it's a special character.
-  process.stdout.write('\r\\  ');
-}, 1500);
-
-setTimeout(() => {
-  // Need to escape the backslash since it's a special character.
-  process.stdout.write('\r|  ');
-}, 1700);
-
-
-// ... fill in the rest yourself ...
+/////REFACTOR LATER/////////
+// const print = (spinner) => {
+// let delay = 100;
+//   for (const i of spinner) {
+//     setTimeout(() => {
+//       process.stdout.write(i);
+//     }
+//     , delay);
+//   } delay += 200;
+// };
+// print(spinner);
